@@ -42,5 +42,13 @@ def update():
         cur.execute("UPDATE question SET title=? WHERE id=?", (title, uid))
     return redirect("/")
 
+@app.route("/delete", methods=['POST'])
+def delete():
+    uid = request.args.get("id")
+    with sql.connet('database.db') as con:
+        cur = con.cursor()
+        cur.execute("DELETE FROM question WHERE id=?", uid)
+    return redirect("/")
+
 app.run(host='127.0.0.1', port='5000')
 
