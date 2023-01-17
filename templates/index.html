@@ -1,0 +1,31 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <main class="container">
+            <form action="/creat" method="POST">
+                <input type="text" name="month" placeholder="Write Month" />
+                <input type="text" name="day" placeholder="Write Day" />
+                <input type="text" name="title" placeholder="Write Question" />
+                <button>추가</button>
+            </form>
+            <table>
+                <tr>
+                    <th>월</th>
+                    <th>일</th>
+                    <th>질문</th>
+                </tr>
+            </table>
+            <tbody>
+                {% for q in question %}
+                <tr>
+                    <td>{{q.month}}</td>
+                    <td>{{q.day}}</td>
+                    <td>{{q.title}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </main>
+    </body>
+</html>
